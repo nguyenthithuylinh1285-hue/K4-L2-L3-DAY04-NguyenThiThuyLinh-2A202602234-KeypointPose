@@ -46,8 +46,8 @@
 - **Quy tắc gán:** Nối từ cùi chỏ (`elbow`) dọc theo xương cẳng tay đến điểm giao với tay lái, chấm tại nếp gấp cổ tay với cờ **`v=1` (Occluded)**.
 
 #### 2.5. Hai người chồng lên nhau
-![Ảnh mẫu Hai người chồng lên nhau](outputs/vis_train/train_01.jpg)
-- **Căn cứ thị giác (`train_01.jpg`):** Hai người đứng song song cạnh nhau, tay người này che khuất một phần thân người kia.
+![Ảnh mẫu Hai người chồng lên nhau](assets/guide/cvat-two-people-overlap.png)
+- **Căn cứ thị giác (`train_01.jpg`):** Hai người đứng song song cạnh nhau cùng nâng chiếc đĩa pizza, cánh tay và đĩa bánh che khuất một phần thân người.
 - **Quy tắc gán:** Gán xong trọn vẹn 17 điểm cho người phía trước (chủ yếu `v=2`). Sau đó gán người phía sau, các khớp bị cơ thể người trước che thì đặt chấm ước lượng và tick **`v=1`**. Không được kéo điểm của người sau bám vào cơ thể người trước (tránh lỗi "nhầm người").
 
 #### 2.6. Người nhỏ đến mức nào thì không gán nữa
