@@ -26,22 +26,22 @@
 ### Chi tiết 6 ảnh mẫu kèm phân tích (Slide 12: Khớp không có bề mặt nhìn thấy phải có ảnh mẫu)
 
 #### 2.1. Hông của người mặc quần áo dài
-![Ảnh mẫu Hông](outputs/vis_train/train_03.jpg)
+![Ảnh mẫu Hông](assets/guide/cvat-hip-long-clothes.png)
 - **Căn cứ thị giác (`train_03.jpg`):** Người mặc quần dài che mất mào chậu và mấu chuyển lớn xương đùi.
 - **Quy tắc gán:** Dóng một đường ngang qua nếp gấp đáy quần, đặt 2 điểm `left_hip` và `right_hip` đối xứng qua đường giữa thân, cờ chọn **`v=1` (Occluded - màu vàng)**. Không được bỏ trống khớp này.
 
 #### 2.2. Tai bị tóc hoặc mũ bảo hiểm che một phần
-![Ảnh mẫu Tai bị mũ che](outputs/vis_train/train_04.jpg)
+![Ảnh mẫu Tai bị mũ che](assets/guide/cvat-ear-helmet.png)
 - **Căn cứ thị giác (`train_04.jpg` - người lái xe bên phải):** Người đội mũ bảo hiểm cào cào che kín tai hoàn toàn.
 - **Quy tắc gán:** Lấy vị trí ngang tầm mắt (`left_eye`, `right_eye`) dóng ngang sang hai bên thái dương ra sát mép mũ, đặt chấm ước lượng và bấm phím `q` để đặt cờ **`v=1` (vàng)**. Tuyệt đối không bấm `o` (Outside) vì đầu người vẫn nằm gọn trong ảnh.
 
 #### 2.3. Người bị cắt ở mép ảnh (từ hông trở lên)
-![Ảnh mẫu Người bị cắt mép ảnh](outputs/vis_train/train_10.jpg)
+![Ảnh mẫu Người bị cắt mép ảnh](assets/guide/cvat-person-cut-edge.png)
 - **Căn cứ thị giác (`train_10.jpg`):** Ảnh chụp nửa thân trên, mép dưới ảnh cắt ngang qua thắt lưng.
 - **Quy tắc gán:** Các khớp `right_hip`, `left_knee`, `right_knee`, `left_ankle`, `right_ankle` đã lọt ra ngoài mép dưới ảnh (`y >= 1.0`). Chọn các điểm này và bấm phím `o` (Outside) để đặt cờ **`v=0`**, tọa độ lưu là `0.0 0.0 0`. Không được ước lượng chấm ngoài mép ảnh.
 
 #### 2.4. Cổ tay nằm sau tay lái / sau thân mình
-![Ảnh mẫu Cổ tay sau tay lái](outputs/vis_train/train_02.jpg)
+![Ảnh mẫu Cổ tay sau tay lái](assets/guide/cvat-wrist-handlebar.png)
 - **Căn cứ thị giác (`train_02.jpg`):** Người đạp xe nắm chặt ghi-đông, khớp cổ tay bị che lấp một phần bởi bàn tay và tay cầm.
 - **Quy tắc gán:** Nối từ cùi chỏ (`elbow`) dọc theo xương cẳng tay đến điểm giao với tay lái, chấm tại nếp gấp cổ tay với cờ **`v=1` (Occluded)**.
 
@@ -51,7 +51,7 @@
 - **Quy tắc gán:** Gán xong trọn vẹn 17 điểm cho người phía trước (chủ yếu `v=2`). Sau đó gán người phía sau, các khớp bị cơ thể người trước che thì đặt chấm ước lượng và tick **`v=1`**. Không được kéo điểm của người sau bám vào cơ thể người trước (tránh lỗi "nhầm người").
 
 #### 2.6. Người nhỏ đến mức nào thì không gán nữa
-![Ảnh mẫu Người nhỏ ở xa](outputs/vis_train/train_13.jpg)
+![Ảnh mẫu Người nhỏ ở xa](assets/guide/cvat-small-person-distant.png)
 - **Căn cứ thị giác (`train_13.jpg`):** Những người xuất hiện rất xa ở hậu cảnh.
 - **Quy tắc gán:** Nếu chiều cao bounding box < 30 pixel, hoặc các bộ phận đầu - thân - chân mờ nhòe không phân biệt được thì **không tạo skeleton**. Chỉ tạo skeleton cho những người đủ lớn để xác định được tối thiểu trục thân chính.
 
